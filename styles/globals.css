@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+Home {
+  height: 14px;
+  width: 42px;
+  left: 210px;
+  top: 40px;
+  border-radius: nullpx;
+}
