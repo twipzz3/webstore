@@ -16,17 +16,31 @@ const useStyles = makeStyles({
   },
 
   home: {
-    height: 14,
-    width: 42,
+    position: 'absolute',
     left: 210,
     top: 40,
     borderRadius: null,
-    //font-family: HelveticaNeueCyr,
-    fontSize: 14,
-    fontWeight: 550,
-    //lineHeight: 14, //высота строки
+    fontWeight: 500,
     textAlign: 'left',
     color: '#FFFFFF',
+  },
+
+  room: {
+    position: 'absolute',
+    left: 292,
+    top: 40,
+    borderRadius: null,
+    fontWeight: 500,
+    textAlign: 'left',
+  },
+
+  cart: {
+    position: 'absolute',
+    left: 1313,
+    top: 40,
+    borderRadius: null,
+    fontWeight: 500,
+    textAlign: 'right',
   },
 
   main: {

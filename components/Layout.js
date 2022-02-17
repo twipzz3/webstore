@@ -22,17 +22,17 @@ export default function Layout({ children }) {
           <Typography className={classes.brand}>eclipse</Typography>
           <div className={classes.home}>
             <NextLink href="/" passHref>
-              <Link>Home</Link>
+              <Link>HOME</Link>
             </NextLink>
           </div>
           <div className={classes.room}>
             <NextLink href="/3droom" passHref>
-              <Link>3D Room</Link>
+              <Link>3D ROOM</Link>
             </NextLink>
           </div>
           <div className={classes.cart}>
             <NextLink href="/cart" passHref>
-              <Link>Cart</Link>
+              <Link>CART</Link>
             </NextLink>
           </div>
         </Toolbar>
