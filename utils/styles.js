@@ -48,7 +48,14 @@ const useStyles = makeStyles({
   },
 
   footer: {
+    marginTop: 10,
     textAlign: 'center',
+  },
+
+  //product page
+  section: {
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
 export default useStyles;
