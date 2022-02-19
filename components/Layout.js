@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import {
@@ -7,10 +7,15 @@ import {
   Typography,
   Container,
   Link,
+  Badge,
 } from '@material-ui/core';
 import useStyles from '../utils/styles';
+import { Store } from '../utils/Store';
+//import Cookies from 'js-cookie';
 
 export default function Layout({ title, description, children }) {
+  const { state } = useContext(Store); //dispatch
+  const { cart } = state;
   const classes = useStyles();
   return (
     <div>
@@ -33,7 +38,15 @@ export default function Layout({ title, description, children }) {
           </div>
           <div className={classes.cart}>
             <NextLink href="/cart" passHref>
-              <Link>CART</Link>
+              <Link>
+                {cart.cartItems.length > 0 ? (
+                  <Badge color="secondary" badgeContent={cart.cartItems.length}>
+                    Cart
+                  </Badge>
+                ) : (
+                  'Cart'
+                )}
+              </Link>
             </NextLink>
           </div>
         </Toolbar>
