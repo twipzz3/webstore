@@ -6,6 +6,7 @@ const data = {
       category: 'Shirts',
       image: '/images/shirt1.png',
       price: 60,
+      countInStock: 9,
       description: 'A popular shirt',
     },
     {
@@ -14,6 +15,7 @@ const data = {
       category: 'Shirts',
       image: '/images/shirt2.png',
       price: 60,
+      countInStock: 10,
       description: 'A popular shirt',
     },
     {
@@ -22,6 +24,7 @@ const data = {
       category: 'Hoodies',
       image: '/images/hoodie1.png',
       price: 120,
+      countInStock: 30,
       description: 'Some description',
     },
   ],
