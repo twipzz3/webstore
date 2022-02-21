@@ -43,7 +43,14 @@ export default function ProductScreen(props) {
       <div className={classes.section}>
         <NextLink href="/" passHref>
           <Link>
-            <Typography>back to products</Typography>
+            <Typography
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+              }}
+            >
+              back to products
+            </Typography>
           </Link>
         </NextLink>
       </div>
@@ -67,6 +74,40 @@ export default function ProductScreen(props) {
             </ListItem>
             <ListItem>
               <Typography> Description: {product.description}</Typography>
+            </ListItem>
+            <ListItem>
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                //onClick={addToCartHandler}
+              >
+                S
+              </Button>
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                //onClick={addToCartHandler}
+              >
+                M
+              </Button>
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                //onClick={addToCartHandler}
+              >
+                L
+              </Button>
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                //onClick={addToCartHandler}
+              >
+                XL
+              </Button>
             </ListItem>
           </List>
         </Grid>

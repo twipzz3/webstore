@@ -3,16 +3,30 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   navbar: {
-    backgroundColor: '#203040',
+    backgroundColor: '#000000',
     '& a': {
       color: '#ffffff',
       marginLeft: 10,
     },
   },
+  backgr: {
+    color: '#ffffff',
+    backgroundColor: '#000000',
+  },
+
+  /*   name: {
+    color: '#ffffff',
+  }, */
 
   brand: {
     fontWeight: 'bold',
     fontSize: '1.5rem',
+  },
+
+  unitName: {
+    fontWeight: 'bold',
+    fontSize: '48px',
+    lineHeight: '48px',
   },
 
   home: {
@@ -50,6 +64,8 @@ const useStyles = makeStyles({
   footer: {
     marginTop: 10,
     textAlign: 'center',
+    backgroundColor: '#000000',
+    color: '#ffffff',
   },
 
   //product page

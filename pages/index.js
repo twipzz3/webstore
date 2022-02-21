@@ -16,9 +16,12 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { Store } from '../utils/Store';
+import useStyles from '../utils/styles';
+import Box from '@mui/material/Box';
 
 export default function Home(props) {
   const router = useRouter();
+  const classes = useStyles();
   const { state, dispatch } = useContext(Store);
   const { products } = props;
   const addToCartHandler = async (product) => {
@@ -36,31 +39,79 @@ export default function Home(props) {
     <Layout>
       <div>
         <h1>Products</h1>
-        <Grid container spacing={3}>
+        <Grid
+          container
+          spacing={3}
+          //justify="flex-start"
+          style={{
+            //marginLeft: -90,
+            //marginRight: 70,
+            width: '1300px',
+            height: '850px',
+            textAlign: 'left',
+            //backgroundSize: 'cover',
+          }}
+        >
           {products.map((product) => (
             <Grid item md={4} key={product.name}>
-              <Card>
+              <Card className={classes.backgr}>
                 <NextLink href={`/product/${product.slug}`} passHref>
                   <CardActionArea>
                     <CardMedia
                       component="img"
                       image={product.image}
                       title={product.name}
+                      style={{
+                        //width: '420px',
+                        height: '500px',
+                        //backgroundSize: 'cover',
+                      }}
                     ></CardMedia>
-                    <CardContent>
-                      <Typography>{product.name}</Typography>
+                    <CardContent
+                      style={{
+                        height: '130px',
+                      }}
+                    >
+                      <Typography className={classes.unitName}>
+                        {product.name}
+                      </Typography>
                     </CardContent>
                   </CardActionArea>
                 </NextLink>
                 <CardActions>
-                  <Typography>${product.price}</Typography>
-                  <Button
-                    size="small"
-                    color="primary"
-                    onClick={() => addToCartHandler(product)}
+                  <Typography
+                    style={{
+                      fontWeight: 300,
+                      fontSize: '36px',
+                      lineHeight: '36px',
+                    }}
                   >
-                    Add to cart
-                  </Button>
+                    ${product.price}
+                  </Typography>
+                  <Box
+                    component="span"
+                    sx={{
+                      //p: 2,
+                      padding: '1px 10px',
+                      border: '2.5px solid white',
+                      borderRadius: '8px',
+                      boxSizing: 'border-box',
+                    }}
+                  >
+                    <Button
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '18px',
+                        lineHeight: '36px',
+                        color: '#ffffff',
+                      }}
+                      //size="small"
+                      //color="primary"
+                      onClick={() => addToCartHandler(product)}
+                    >
+                      Add to Cart
+                    </Button>
+                  </Box>
                 </CardActions>
               </Card>
             </Grid>
