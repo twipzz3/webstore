@@ -8,15 +8,21 @@ const useStyles = makeStyles({
       color: '#ffffff',
       marginLeft: 10,
     },
+    /*     menu: {
+      backgroundColor: 'blue',
+    }, */
   },
   backgr: {
     color: '#ffffff',
     backgroundColor: '#000000',
   },
 
-  /*   name: {
+  defFont: {
     color: '#ffffff',
-  }, */
+    fontWeight: 500,
+    fontSize: '24px',
+    lineHeight: '24px',
+  },
 
   brand: {
     fontWeight: 'bold',

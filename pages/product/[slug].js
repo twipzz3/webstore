@@ -7,8 +7,10 @@ import {
   List,
   ListItem,
   Typography,
-  Card,
+  //Card,
   Button,
+  Select,
+  MenuItem,
 } from '@material-ui/core';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
@@ -22,6 +24,7 @@ export default function ProductScreen(props) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { product } = props;
+  //const selectedSize = [0];
   const classes = useStyles();
   if (!product) {
     return <div>Product Not Found</div>;
@@ -37,6 +40,21 @@ export default function ProductScreen(props) {
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
     router.push('/cart');
   };
+
+  /*   const componentDidMount = async () => {
+    let defSize = this.state.product.sizes[0];
+    this.setState({
+      selectedSize: defSize,
+    });
+  };
+
+  const renderSize = async () => {
+    let sizes = [];
+    this.state.product.sizes.map((s, i) => {
+      size.push(<Item key={i} label={s} value={s} />);
+    });
+    return size;
+  }; */
 
   return (
     <Layout title={product.name} description={product.description}>
@@ -55,7 +73,7 @@ export default function ProductScreen(props) {
         </NextLink>
       </div>
       <Grid container spacing={1}>
-        <Grid item md={6} xs={12}>
+        <Grid item md={5} xs={16}>
           <Image
             src={product.image}
             alt={product.name}
@@ -64,90 +82,75 @@ export default function ProductScreen(props) {
             layout="responsive"
           ></Image>
         </Grid>
-        <Grid item md={3} xs={12}>
+        <Grid>
           <List>
             <ListItem>
-              <Typography component="h1">{product.name}</Typography>
+              <Typography
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '64px',
+                  lineHeight: '64px',
+                }}
+              >
+                {product.name}
+              </Typography>
             </ListItem>
             <ListItem>
-              <Typography>Category: {product.category}</Typography>
+              <Typography className={classes.defFont}>
+                Category: {product.category}
+              </Typography>
             </ListItem>
             <ListItem>
-              <Typography> Description: {product.description}</Typography>
+              <Typography className={classes.defFont}>
+                {' '}
+                Description: {product.description}
+              </Typography>
             </ListItem>
             <ListItem>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                //onClick={addToCartHandler}
+              <Select
+                style={{
+                  backgroundColor: 'white',
+                  width: '200px',
+                }}
               >
-                S
-              </Button>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                //onClick={addToCartHandler}
-              >
-                M
-              </Button>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                //onClick={addToCartHandler}
-              >
-                L
-              </Button>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                //onClick={addToCartHandler}
-              >
-                XL
-              </Button>
+                <MenuItem mode="dropdown" placeholder="Select a size">
+                  {product.sizes}
+                </MenuItem>
+              </Select>
             </ListItem>
+            <ListItem>
+              <Typography className={classes.defFont}>
+                Price: ${product.price}
+              </Typography>
+            </ListItem>
+            <ListItem>
+              <Typography className={classes.defFont}>
+                Status: {product.countInStock > 0 ? 'In stock' : 'Unavailable'}
+              </Typography>
+            </ListItem>
+            <Grid container>
+              <Grid item xs={4}>
+                <ListItem>
+                  <NextLink href="/3droom" passHref>
+                    <Button variant="contained" color="primary">
+                      3D room
+                    </Button>
+                  </NextLink>
+                </ListItem>
+              </Grid>
+              <Grid item xs={5}>
+                <ListItem>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={addToCartHandler}
+                  >
+                    Add to cart
+                  </Button>
+                </ListItem>
+              </Grid>
+            </Grid>
           </List>
-        </Grid>
-        <Grid item md={3} xs={12}>
-          <Card>
-            <List>
-              <ListItem>
-                <Grid container>
-                  <Grid item xs={6}>
-                    <Typography>Price</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography>${product.price}</Typography>
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem>
-                <Grid container>
-                  <Grid item xs={6}>
-                    <Typography>Status</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography>
-                      {product.countInStock > 0 ? 'In stock' : 'Unavailable'}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </ListItem>
-              <ListItem>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  onClick={addToCartHandler}
-                >
-                  Add to cart
-                </Button>
-              </ListItem>
-            </List>
-          </Card>
         </Grid>
       </Grid>
     </Layout>

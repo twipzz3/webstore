@@ -61,12 +61,7 @@ function CartScreen() {
     <Layout title="Shopping Cart">
       <CheckoutWizard activeStep={0}></CheckoutWizard>
       <form className={classes.form} onSubmit={checkoutHandler}>
-        <Typography component="h1" variant="h1">
-          Cart
-        </Typography>
-        <Typography component="h1" variant="h1">
-          Shopping Cart
-        </Typography>
+        <Typography className={classes.defFont}>Shopping Cart</Typography>
         {cartItems.length === 0 ? (
           <div>
             Cart is empty.{' '}
@@ -75,17 +70,26 @@ function CartScreen() {
             </NextLink>
           </div>
         ) : (
-          <Grid container spacing={1}>
-            <Grid item md={9} xs={12}>
+          <Grid container spacing={2}>
+            <Grid item md={9} xs={12} className={classes.transparentBackgroud}>
               <TableContainer>
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Image</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell align="right">Quantity</TableCell>
-                      <TableCell align="right">Price</TableCell>
-                      <TableCell align="right">Action</TableCell>
+                      <TableCell style={{ color: 'white' }}>Image</TableCell>
+                      <TableCell style={{ color: 'white' }}>Name</TableCell>
+                      <TableCell align="right" style={{ color: 'white' }}>
+                        Quantity
+                      </TableCell>
+                      <TableCell align="right" style={{ color: 'white' }}>
+                        Size
+                      </TableCell>
+                      <TableCell align="right" style={{ color: 'white' }}>
+                        Price
+                      </TableCell>
+                      <TableCell align="right" style={{ color: 'white' }}>
+                        Action
+                      </TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -113,6 +117,9 @@ function CartScreen() {
                         </TableCell>
                         <TableCell align="right">
                           <Select
+                            style={{
+                              backgroundColor: 'white',
+                            }}
                             value={item.quantity}
                             onChange={(e) =>
                               updateCartHandler(item, e.target.value)
@@ -125,7 +132,12 @@ function CartScreen() {
                             ))}
                           </Select>
                         </TableCell>
-                        <TableCell align="right">${item.price}</TableCell>
+                        <TableCell align="center" style={{ color: 'white' }}>
+                          {item.size}
+                        </TableCell>
+                        <TableCell align="right" style={{ color: 'white' }}>
+                          ${item.price}
+                        </TableCell>
                         <TableCell align="right">
                           <Button
                             variant="contained"

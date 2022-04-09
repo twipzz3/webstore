@@ -7,6 +7,7 @@ const data = {
       image: '/images/shirt1.png',
       price: 60,
       countInStock: 9,
+      //sizes: ['S', 'M', 'L', 'XL'],
       description: 'A popular shirt',
     },
     {
@@ -16,6 +17,7 @@ const data = {
       image: '/images/shirt2.png',
       price: 60,
       countInStock: 10,
+      //sizes: ['S', 'M', 'L', 'XL'],
       description: 'A popular shirt',
     },
     {
@@ -25,6 +27,7 @@ const data = {
       image: '/images/hoodie1.png',
       price: 120,
       countInStock: 30,
+      //sizes: ['S', 'M', 'L', 'XL'],
       description: 'Some description',
     },
   ],
